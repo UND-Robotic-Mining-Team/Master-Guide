@@ -12,8 +12,15 @@ What work needs to be done to get here?
 
 1. Implement a REST server within the primary motor controlling software (See https://gitlab.com/eidheim/Simple-Web-Server/blob/master/http_examples.cpp for examples)
 
-2. Implement REST requests within the current controller interface on Windows
+2. Implement REST requests within the current controller interface on Windows, and within the existing software.
 
 3. Work on creating two separate docker images: one that will interface with the front camera, and another that will interface with the back one. Have a separate sensor-tasker project that will manage the information from these, make decisions, and allow a UI over the network to control decisions.
 
 4. (Optional) create a minimal data converter to keep full REST requests from going over the network, to minimize data transmission.
+
+
+## Other Tasking ##
+
+SystemD Unit Scripts need to be written for process management and startup. Firstly, on boot the CAN bus needs to be initialized. There's likely existing scripts that will search for USBCAN devices and help with this, may be worth some searching on Github.
+
+OpenCV and YOLO need to be looked into. Specifically, AruCo markers in OpenCV need to be used to localize our rover with the rest of the region.
